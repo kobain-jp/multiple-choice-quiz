@@ -1,0 +1,23 @@
+
+.quize-container{
+    text-align: center;
+}
+
+.question{
+    font-size:30px;
+    margin: 30px;
+}
+
+
+.choice{
+    min-width: 100px;
+    height: 40px;
+    margin: 5px;
+    color: black;
+    background:white;
+}
+
+.choice:hover{
+    color: white;
+    background:grey;
+}

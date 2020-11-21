@@ -9,6 +9,7 @@ let commentary = "Java is to JavaScript as Car is to Carpet\nと言われてい�
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
 
+// controller
 function answer(e) {
     console.log(e.target);
     console.log(e.target.value);
@@ -24,6 +25,7 @@ function answer(e) {
 
 }
 
+// controller
 function nextQuestion() {
     question = "background: linear-gradientはどのような効果？";
     choices = ["背景に線形グラデーションを表示する", "背景に反復線形グラデーションを表示する"];

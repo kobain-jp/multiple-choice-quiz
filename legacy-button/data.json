@@ -16,7 +16,7 @@
             "注册",
             "忘记密码"
         ],
-        "collectId": 0,
+        "collectIdx": 0,
         "commentary": "登录はSign upみたいですがLoginです。\nSign upは注册。\n忘记密码はログインページに必ずあるあれです。"
     },
     {

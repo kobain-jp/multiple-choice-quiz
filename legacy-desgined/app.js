@@ -9,7 +9,7 @@ let commentary = "";
 
 // html element
 const questionEl = document.getElementById("question");
-const choiceEl = document.getElementById("choices");
+const choicesEl = document.getElementById("choices");
 
 // controller
 function answer(e) {

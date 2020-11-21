@@ -36,7 +36,7 @@ app.js
 // current question
 let question = "javascriptがjavaとついている理由は？";　　
 let choices = ["javaのようにjvm上で動くため","javaのコードをそのままかいても動くため","javaがその時流行っていたから"];
-let collectIdx = 1;　 
+let collectIdx = 2;　 
 let commentary = "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。";　
 ```
 
@@ -136,8 +136,8 @@ function answer(e) {
 // current question
 let question = "javascriptがjavaとついている理由は？";　　
 let choices = ["javaのようにjvm上で動くため","javaのコードをそのままかいても動くため","javaがその時流行っていたから"];
-let collectIdx = 1;　 
-let commentary = "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。";　
+let collectIdx = 2;　 
+let commentary = "Java is to JavaScript as Car is to Carpeと言われていれるぐらいjavaとjavascriptは違います。";　
 
 // set html element to variables 
 const questionElement = document.getElementById("question");

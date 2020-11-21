@@ -142,6 +142,7 @@ let commentary = "Java is to JavaScript as Car is to Carpeと言われていれ�
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
 
+// controller
 function answer(e) {
     console.log(e.target);
     console.log(e.target.value);

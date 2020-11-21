@@ -57,27 +57,36 @@ function renderQuize() {
 }
 
 //model
-async function loadQuize() {
+function loadQuize() {
 
-    try {
-        const response = await fetch("./data.json");
-        return await response.json();
-    } catch (err) {
-        console.log(err);
-        throw new Error(err);
-    }
+    return new Promise((resolve, reject) => {
+
+        fetch("./data.json").
+            then((res) => {
+                return res.json();
+            }).
+            then((json) => {
+                resolve(json);
+            }).catch((err) => {
+                reject(err);
+            })
+
+    });
+
 
 }
 
 //controller
-async function init() {
-    try {
-        quizList = await loadQuize();
+function init() {
+
+    loadQuize().then((json) => {
+        quizList = json;
         nextQuestion();
-    } catch (err) {
+    }).catch((err) => {
         console.log(err);
         questionEl.innerHTML = "クイズの取得に失敗しました。"
-    }
+    });
+
 }
 
 init();

@@ -55,31 +55,30 @@ function renderQuize() {
 }
 
 //model
-function loadQuize() {
+function loadQuize(onSuccess, onFail) {
 
-    return new Promise((resolve, reject) => {
+    fetch("./data.json")
+        .then((res) => {
+            return res.json();
+        }).then((json) => {
+            quizList = json;
+            onSuccess();
+        }).catch((err) => {
+            console.log(err);
+            onFail();
+        });
 
-        fetch("./data.json")
-            .then((res) => {
-                resolve(res.json());
-            })
-            .catch((err) => {
-                reject(err);
-            });
+}
 
-    });
-
+function showUnavailable() {
+    questionEl.innerHTML = "クイズの取得に失敗しました。";
 }
 
 //controller
 function init() {
 
-    loadQuize().then((data) => {
-        quizList = data;
-        nextQuestion();
-    }).catch((err) => {
-        questionEl.innerHTML = "クイズの取得に失敗しました。"
-    })
+    loadQuize(nextQuestion, showUnavailable);
+
 }
 
 init();

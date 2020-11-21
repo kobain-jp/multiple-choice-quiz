@@ -1,4 +1,4 @@
-(function () {
+(async function () {
 
     const App = {
 
@@ -86,5 +86,5 @@
 
     }
 
-    App.init();
+    await App.init();
 }());

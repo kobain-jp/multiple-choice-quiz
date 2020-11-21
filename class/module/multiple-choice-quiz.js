@@ -14,8 +14,8 @@ class MultipleChoiceQuize {
         this.questionEl = document.getElementById("question");
         this.choicesEl = document.getElementById("choices");
 
-        this.loadQuize().then((data) => {
-            this.quizList = data;
+        this.loadQuize().then((json) => {
+            this.quizList = json;
             this.nextQuestion();
         }).catch((err) => {
             console.log(err);

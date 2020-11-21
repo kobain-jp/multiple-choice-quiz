@@ -126,7 +126,10 @@ function answer(e) {
 
 }
 
+```
+
 描画用ロジックをひとつの関数にまとめてリファクタリングしよう
+
 ```
 
 // current question

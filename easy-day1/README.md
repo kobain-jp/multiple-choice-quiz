@@ -35,13 +35,8 @@ app.js
 ```
 // current question
 let question = "javascriptがjavaとついている理由は？";　　
-<<<<<<< HEAD:easy-day1/README.md
 let choices = ["javaのようにjvm上で動くため","javaのコードをそのままかいても動くため","javaがその時流行っていたから"];
 let collectIdx = 2;　 
-=======
-let choices = ["javaのようにjvm上で動くため","javaのコードをそのままかいても動くため","javaがその時流行っていたから"]; // []は配列
-let collectIdx = 1;　 
->>>>>>> 73f90a5da85f41e921a36a9c11b27c949299e6ef:easy/README.md
 let commentary = "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。";　
 ```
 

@@ -1,9 +1,6 @@
 # multiple-choice-quiz easy
 
-選択式クイズゲームを作りましょう
-
-
-### 必要なファイルを作成する。
+### ファイルを作成する。
 
 ```
 quize-easy
@@ -43,6 +40,7 @@ let collectIdx = 2;　
 let commentary = "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。";　
 ```
 
+[]は配列
 https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 クイズの本文を表示しよう
@@ -56,20 +54,25 @@ questionElement.innerHTML = question;
 
 クイズの選択肢を表示しよう 動的にHTMLを作ろう
 
+document.createElement
+https://developer.mozilla.org/ja/docs/Web/API/Document/createElement
+
+element.appendChildを
+https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild
+
 app.js
 
 ```
-const inputElement = document.createElement("input"); // elementを生成
-inputElement.setAttribute("type", "button");　// elementにタイプを付与
-inputElement.setAttribute("value", choices[0]);　// 
-choicesElement.appendChild(inputElement); // 別のelementにappend
+const inputElement = document.createElement("input");
+inputElement.setAttribute("type", "button");
+inputElement.setAttribute("value", choices[0]);
+choicesElement.appendChild(inputElement);
 
 ```
-document.createElement　https://developer.mozilla.org/ja/docs/Web/API/Document/createElement
-
-element.appendChild　https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild
 
 配列のforEachを使って、配列の分選択肢を表示しよう
+
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 app.js
 
@@ -84,8 +87,6 @@ choices.forEach(function (choice, idx) {
 });
 
 ```
-
-https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 ### 選択肢クリック時の処理を実装しよう
 
@@ -129,23 +130,19 @@ function answer(e) {
 
 }
 
-```
-
 描画用ロジックをひとつの関数にまとめてリファクタリングしよう
-
 ```
 
 // current question
 let question = "javascriptがjavaとついている理由は？";　　
 let choices = ["javaのようにjvm上で動くため","javaのコードをそのままかいても動くため","javaがその時流行っていたから"];
 let collectIdx = 2;　 
-let commentary = "Java is to JavaScript as Car is to Carpeと言われていれるぐらいjavaとjavascriptは違います。";　
+let commentary = "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。";　
 
 // set html element to variables 
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
 
-// controller
 function answer(e) {
     console.log(e.target);
     console.log(e.target.value);
@@ -258,10 +255,9 @@ html heightの初期値はautoなので、ブラウザのサイズのフィッ�
 以下は次回以降
 
 ### クイズデータを配列にしよう
-### data-プロパティで正誤判断をしよう
 ### クイズデータをfetch api でjsonファイルから読み込もう
 ### 解答をボタンからリストにして、縦に並べよう
-### liをボタンにみえるようにcssをいじろう
+###
 
 
 

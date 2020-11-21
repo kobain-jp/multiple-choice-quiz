@@ -44,32 +44,28 @@ function nextQuestion() {
 function renderQuize() {
     questionEl.innerHTML = question;
 
-    choiceEl.innerHTML = "";
+    choicesEl.innerHTML = "";
     choices.forEach(function (choice, idx) {
         const liElement = document.createElement("li");
         liElement.setAttribute("data-idx", idx);
         liElement.innerHTML = choice;
         liElement.addEventListener("click", answer);
         liElement.classList.add("choice");
-        choiceEl.appendChild(liElement);
+        choicesEl.appendChild(liElement);
     });
 
 }
 
 //model
-function loadQuize() {
+async function loadQuize() {
 
-    return new Promise((resolve, reject) => {
-
-        fetch("data.json")
-            .then((res) => {
-                resolve(res.json());
-            })
-            .catch((err) => {
-                reject(err);
-            });
-
-    });
+    try {
+        const response = await fetch("./data.json");
+        return await response.json();
+    } catch (err) {
+        console.log(err);
+        throw new Error(err);
+    }
 
 }
 
@@ -79,6 +75,7 @@ async function init() {
         quizList = await loadQuize();
         nextQuestion();
     } catch (err) {
+        console.log(err);
         questionEl.innerHTML = "クイズの取得に失敗しました。"
     }
 }

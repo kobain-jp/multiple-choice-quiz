@@ -72,13 +72,14 @@ function loadQuize() {
 }
 
 //controller
-async function init() {
-    try {
-        quizList = await loadQuize();
+function init() {
+
+    loadQuize().then((data) => {
+        quizList = data;
         nextQuestion();
-    } catch (err) {
+    }).catch((err) => {
         questionEl.innerHTML = "クイズの取得に失敗しました。"
-    }
+    })
 }
 
 init();

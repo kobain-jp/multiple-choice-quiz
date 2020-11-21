@@ -72,22 +72,15 @@
         }
 
         //model
-        , loadQuize: function () {
+        , loadQuize: async function () {
 
-            return new Promise((resolve, reject) => {
-
-                fetch("./data.json")
-                    .then((res) => {
-                        return res.json();
-                    })
-                    .then((data) => {
-                        resolve(data);
-                    })
-                    .catch((err) => {
-                        reject(err);
-                    });
-
-            });
+            try {
+                const response = await fetch("./data.json");
+                return await response.json();
+            } catch (err) {
+                console.log(err);
+                throw new Error(err);
+            }
 
         }
 

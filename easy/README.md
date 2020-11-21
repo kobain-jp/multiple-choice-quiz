@@ -1,6 +1,6 @@
 # multiple-choice-quiz easy
 
-### ファイルを作成する。
+### 必要なファイルを作成する。
 
 ```
 quize-easy

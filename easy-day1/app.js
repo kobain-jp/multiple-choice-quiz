@@ -18,6 +18,7 @@ function answer(e) {
         alert(commentary);
         nextQuestion();
     } else {
+        alert('不正解');
         e.target.remove();
     }
 

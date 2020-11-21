@@ -1,0 +1,17 @@
+html{
+    height: 100%;
+}
+
+body{
+    background: linear-gradient(45deg, #005BAC, #5EC2C6);
+    color: white;
+    font-size: 30px;
+}
+
+input[type="button"] {
+   background-image: linear-gradient(0deg, #a7d9f5, #eaf6fd); /* グラデーション */
+   border: 1px solid #3c7fb1; /* 枠線 */
+   border-radius: 0.3em;   
+   min-width: 200px;
+}
+

@@ -3,7 +3,7 @@
 ### ファイルを作成する。
 
 ```
-quize-easy
+mcquize-easy
 -index.html
 -app.js
 -app.css

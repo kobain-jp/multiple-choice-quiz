@@ -1,6 +1,14 @@
 class MultipleChoiceQuize {
 
-    constructor() {
+    constructor(calledByBuilder) {
+
+        if (calledByBuilder === undefined) {
+            throw new Error("please use MultipleChoiceQuizeBuilder.build() instead");
+        }
+
+    }
+
+    async init() {
         // quize data
         this.quizList = [];
 
@@ -14,13 +22,13 @@ class MultipleChoiceQuize {
         this.questionEl = document.getElementById("question");
         this.choicesEl = document.getElementById("choices");
 
-        this.loadQuize().then((json) => {
-            this.quizList = json;
+        try {
+            this.quizList = await this.loadQuize();
             this.nextQuestion();
-        }).catch((err) => {
+        } catch (err) {
             console.log(err);
             this.questionEl.innerHTML = "クイズの取得に失敗しました。"
-        })
+        }
 
     }
 
@@ -89,5 +97,17 @@ class MultipleChoiceQuize {
     }
 }
 
-export { MultipleChoiceQuize };
+
+
+class MultipleChoiceQuizeBuilder {
+
+    static async build() {
+        const multipleChoiceQuize = new MultipleChoiceQuize(true);
+        await multipleChoiceQuize.init();
+        return multipleChoiceQuize;
+    }
+
+}
+
+export { MultipleChoiceQuizeBuilder, MultipleChoiceQuize };
 

@@ -46,6 +46,7 @@ function renderQuize() {
 
     choicesEl.innerHTML = "";
     choices.forEach(function (choice, idx) {
+
         const liElement = document.createElement("li");
         liElement.setAttribute("data-idx", idx);
         liElement.innerHTML = choice;

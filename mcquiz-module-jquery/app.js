@@ -61,13 +61,15 @@
 
             this.$choices.html("");
             this.choices.forEach((choice, idx) => {
+                // without jsRender
+                //const $li = $("<li>", {text: choice,"data-idx": idx,class: "choice"})
 
-                const $li = $("<li>", {
-                    text: choice,
-                    "data-idx": idx,
-                    class: "choice"
-                })
+                // with jsRender
+                const tmpl = $.templates("#tmpl"); // Get compiled template
+                const data = { "idx": "choice", choice };           // Define data
+                const html = tmpl.render(data);
 
+                const $li = $(html);
                 $li.on("click", $.proxy(this.answer, this));
                 $li.appendTo(this.$choices)
 

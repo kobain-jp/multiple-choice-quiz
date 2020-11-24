@@ -14,8 +14,12 @@
         <ul class="choices" id="choices"></ul>
     </div>
     <footer class="footer">© 2020 Multiple Quize from dojo</footer>
+    <script id="tmpl" type="text/x-jsrender">
+        <li class="choice" data-idx="{{:idx}}">{{:choice}}</li>
+      </script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://www.jsviews.com/download/jsrender.js"></script>
     <script src="app.js"></script>
 </body>
 

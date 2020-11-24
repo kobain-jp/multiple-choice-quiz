@@ -99,7 +99,7 @@ choices.forEach(function (choice, idx) {
 
     const inputElement = document.createElement("input");
     inputElement.setAttribute("type", "button");
-+   inputElement.setAttribute("value", choices[idx]);
++   inputElement.setAttribute("value", choices[idx]); // choiceでもok
     inputElement.addEventListener("click", answer);
     choicesElement.appendChild(inputElement);
 

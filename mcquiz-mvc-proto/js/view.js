@@ -3,6 +3,8 @@
     function View() {
         this.questionEl = document.getElementById("question");
         this.choicesEl = document.getElementById("choices");
+
+        this.template = document.getElementById("template");
     }
 
     View.prototype.bind = function (event, handler) {
@@ -18,11 +20,12 @@
         this.questionEl.innerHTML = quize.question;
         this.choicesEl.innerHTML = "";
         quize.choices.forEach(function (choice, idx) {
-            const liElement = document.createElement("li");
+
+            const liElement = this.template.content.firstElementChild.cloneNode(true);
             liElement.setAttribute("data-idx", idx);
             liElement.innerHTML = choice;
-            liElement.classList.add("choice");
             this.choicesEl.appendChild(liElement);
+
         }.bind(this));
     }
 

@@ -63,6 +63,8 @@ https://developer.mozilla.org/ja/docs/Web/API/Node/appendChild
 app.js
 
 ```
+const choicesElement = document.getElementById("choices");
+
 const inputElement = document.createElement("input");
 inputElement.setAttribute("type", "button");
 inputElement.setAttribute("value", choices[0]);

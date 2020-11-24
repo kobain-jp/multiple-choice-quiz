@@ -11,7 +11,7 @@
             this.nextQuestion();
         } catch (err) {
             console.log(err);
-            this.view.questionEl.innerHTML = "クイズの取得に失敗しました。"
+            this.view.questionEl.insertAdjacentHTML('beforeend', "クイズの取得に失敗しました。");
         }
 
     }

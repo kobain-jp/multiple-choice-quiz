@@ -17,12 +17,15 @@
             this.questionEl = document.getElementById("question");
             this.choicesEl = document.getElementById("choices");
 
+            // html template
+            this.template = document.getElementById("template");
+
             try {
                 this.quizList = await this.loadQuize();
                 this.nextQuestion();
             } catch (err) {
                 console.log(err);
-                this.questionEl.innerHTML = "クイズの取得に失敗しました。"
+                this.questionEl.insertAdjacentHTML('beforeend', "クイズの取得に失敗しました。");
             }
 
         }
@@ -58,16 +61,17 @@
 
         // view
         , renderQuize: function () {
-            this.questionEl.innerHTML = this.question;
+            this.questionEl.insertAdjacentHTML('beforeend', this.question);
 
-            this.choicesEl.innerHTML = "";
+            this.choicesEl.textContent = "";
             this.choices.forEach(function (choice, idx) {
-                const liElement = document.createElement("li");
+
+                const liElement = this.template.content.firstElementChild.cloneNode(true);
                 liElement.setAttribute("data-idx", idx);
-                liElement.innerHTML = choice;
+                liElement.insertAdjacentHTML('beforeend', choice);
                 liElement.addEventListener("click", this.answer.bind(this));
-                liElement.classList.add("choice");
                 this.choicesEl.appendChild(liElement);
+
             }.bind(this));
         }
 

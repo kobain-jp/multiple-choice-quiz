@@ -18,12 +18,12 @@
 
     View.prototype.renderQuize = function (quize) {
         this.questionEl.innerHTML = quize.question;
-        this.choicesEl.innerHTML = "";
+        this.choicesEl.textContent = "";
         quize.choices.forEach(function (choice, idx) {
 
             const liElement = this.template.content.firstElementChild.cloneNode(true);
             liElement.setAttribute("data-idx", idx);
-            liElement.innerHTML = choice;
+            liElement.insertAdjacentHTML('beforeend', choice);
             this.choicesEl.appendChild(liElement);
 
         }.bind(this));

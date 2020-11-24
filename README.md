@@ -20,9 +20,14 @@
 選択肢がul
 モジュールパターン
 
+### mcquize-mvc-proto
+
+選択肢がul
+prototypeの書き方でmvcパターン
+
 ### mcquize-class
 
 選択肢がul
-classとbuilderパターン(constructorでasync使えないため)
+class(constructorでasync使えないため、newしてinit呼ぶ構造)
 https://medium.com/better-programming/how-to-write-an-async-class-constructor-in-typescript-javascript-7d7e8325c35e
 

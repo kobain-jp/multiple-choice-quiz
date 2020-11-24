@@ -14,6 +14,15 @@ mcquize-easy
 index.html
 
 ```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="app.css">
+</head>
 <body>
     <div id="question">桃太郎の家来でないのはどれ</div>
     <div id="choices">
@@ -25,6 +34,7 @@ index.html
     <script src="app.js"></script>
 </body>
 
+</html>
 ```
 
 ### クイズのデータからクイズを表示しよう

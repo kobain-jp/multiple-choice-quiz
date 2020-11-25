@@ -1,102 +1,97 @@
 (async function ($) {
+  const App = {
+    init: function () {
+      // quize data
+      this.quizList = [];
 
-    const App = {
+      // current question
+      this.question = "";
+      this.choices = [];
+      this.collectIdx = 0;
+      this.commentary = "";
 
-        init: function () {
+      // html element
+      this.$question = $("#question");
+      this.$choices = $("#choices");
 
-            // quize data
-            this.quizList = [];
+      this.loadQuize()
+        .done(() => {
+          this.nextQuestion();
+        })
+        .fail((err) => {
+          console.log(err);
+          this.$question.html("クイズの取得に失敗しました。");
+        });
+    },
 
-            // current question
-            this.question = "";
-            this.choices = [];
-            this.collectIdx = 0;
-            this.commentary = "";
+    // controller
+    answer: function (e) {
+      if (parseInt(e.target.dataset.idx) === this.collectIdx) {
+        alert("正解!!");
+        alert(this.commentary);
+        this.nextQuestion();
+      } else {
+        alert("不正解!!");
+        e.target.remove();
+      }
+    },
 
-            // html element
-            this.$question = $("#question");
-            this.$choices = $("#choices");
+    // controller
+    nextQuestion: function () {
+      if (this.quizList.length === 0) {
+        alert("おしまい!! お疲れ様でした!!");
+        window.location.reload();
+      }
 
-            this.loadQuize().done(() => {
-                this.nextQuestion();
-            }).fail((err) => {
-                console.log(err);
-                this.$question.html("クイズの取得に失敗しました。");
-            });
+      this.quiz = this.quizList.pop();
+      this.question = this.quiz.question;
+      this.choices = this.quiz.choices;
+      this.collectIdx = this.quiz.collectIdx;
+      this.commentary = this.quiz.commentary;
 
-        }
+      this.renderQuize();
+    },
 
-        // controller
-        , answer: function (e) {
-            if (parseInt(e.target.dataset.idx) === this.collectIdx) {
-                alert("正解!!");
-                alert(this.commentary);
-                this.nextQuestion();
-            } else {
-                alert("不正解!!");
-                e.target.remove();
-            }
+    // view
+    renderQuize: function () {
+      this.$question.html(this.question);
 
-        }
+      this.$choices.html("");
+      this.choices.forEach((choice) => {
+        // without jsRender
+        //const $li = $("<li>", {text: choice,"data-idx": idx,class: "choice"})
 
-        // controller
-        , nextQuestion: function () {
-            if (this.quizList.length === 0) {
-                alert("おしまい!! お疲れ様でした!!");
-                window.location.reload();
-            }
+        // with jsRender
+        const tmpl = $.templates("#tmpl"); // Get compiled template
+        const data = { idx: "choice", choice }; // Define data
+        const html = tmpl.render(data);
 
-            this.quiz = this.quizList.pop();
-            this.question = this.quiz.question;
-            this.choices = this.quiz.choices;
-            this.collectIdx = this.quiz.collectIdx;
-            this.commentary = this.quiz.commentary;
+        const $li = $(html);
+        $li.on("click", $.proxy(this.answer, this));
+        $li.appendTo(this.$choices);
+      });
+    },
 
-            this.renderQuize();
-        }
+    //model
+    loadQuize: function () {
+      var deferred = new $.Deferred();
 
-        // view
-        , renderQuize: function () {
-            this.$question.html(this.question);
+      $.ajax({
+        url: "./data.json",
+        type: "GET",
+        dataType: "json",
+      })
+        .done((data) => {
+          this.quizList = data;
+          deferred.resolve();
+        })
+        .fail((xhr) => {
+          deferred.reject(xhr);
+        });
 
-            this.$choices.html("");
-            this.choices.forEach((choice, idx) => {
-                // without jsRender
-                //const $li = $("<li>", {text: choice,"data-idx": idx,class: "choice"})
+      return deferred.promise();
+    },
+  };
 
-                // with jsRender
-                const tmpl = $.templates("#tmpl"); // Get compiled template
-                const data = { "idx": "choice", choice };           // Define data
-                const html = tmpl.render(data);
-
-                const $li = $(html);
-                $li.on("click", $.proxy(this.answer, this));
-                $li.appendTo(this.$choices)
-
-            });
-        }
-
-        //model
-        , loadQuize: function () {
-            var deferred = new $.Deferred;
-
-            $.ajax({
-                url: "./data.json",
-                type: "GET",
-                dataType: "json",
-            }).done((data) => {
-                this.quizList = data;
-                deferred.resolve();
-            }).fail((xhr) => {
-                deferred.reject(xhr);
-            })
-
-            return deferred.promise();
-
-        }
-
-    }
-
-    App.init();
-
-}(window.jQuery));
+  App.init();
+})(window.jQuery);

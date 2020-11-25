@@ -1,0 +1,9 @@
+*.html
+*.css
+*.json
+.gitignore
+.eslintrc.js
+.md
+
+#　https://prettier.io/docs/en/install.html
+#　npx prettier --write .

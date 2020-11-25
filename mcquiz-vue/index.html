@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple choice quiz</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body class="container">
+    <div id="app">
+        <div class="quize-container">
+            <div class="question" v-text="question"></div>
+            <ul class="choices">
+                <li v-for="(choice,idx) in choices" v-bind:key="idx" class="choice" v-on:click="answer"
+                    v-bind:data-idx="idx">
+                    {{ choice }}
+                </li>
+            </ul>
+        </div>
+        <footer class="footer">© 2020 Multiple Quize from dojo</footer>
+    </div>
+    <footer class="footer">© 2020 Multiple Quize from dojo</footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

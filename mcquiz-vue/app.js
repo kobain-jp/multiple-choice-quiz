@@ -19,6 +19,7 @@ const app = new Vue({
                 this.nextQuestion();
             } else {
                 alert("不正解!!");
+                // dataのフラグでやるべきだが、手抜き
                 e.target.style.display = "none";
             }
 

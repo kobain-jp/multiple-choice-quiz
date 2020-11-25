@@ -42,7 +42,8 @@ const app = new Vue({
                 axios
                     .get('./data.json')
                     .then((res) => {
-                        resolve(res.data);
+                        this.quizList = res.data;
+                        resolve();
                     }).catch((err) => {
                         reject(err);
                     });
@@ -53,8 +54,8 @@ const app = new Vue({
         }
 
     }, mounted: function () {
-        this.loadQuize().then((json) => {
-            this.quizList = json;
+
+        this.loadQuize().then(() => {
             this.nextQuestion();
         }).catch((err) => {
             console.log(err);

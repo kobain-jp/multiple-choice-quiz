@@ -19,8 +19,7 @@ const app = new Vue({
                 this.nextQuestion();
             } else {
                 alert("不正解!!");
-                //e.target.remove();
-                //FIX ME
+                e.target.style.display = "none";
             }
 
         }, nextQuestion: function () {

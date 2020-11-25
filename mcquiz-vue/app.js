@@ -57,8 +57,7 @@ const app = new Vue({
             this.nextQuestion();
         }).catch((err) => {
             console.log(err);
-            // questionEl.innerHTML = "クイズの取得に失敗しました。"
-            // FIX ME
+            this.question = "クイズの取得に失敗しました。";
         });
     }
 })

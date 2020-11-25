@@ -23,8 +23,7 @@ const app = new Vue({
                 //FIX ME
             }
 
-        },
-        nextQuestion: function () {
+        }, nextQuestion: function () {
             if (this.quizList.length === 0) {
                 alert("おしまい!! お疲れ様でした!!");
                 window.location.reload();

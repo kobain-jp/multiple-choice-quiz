@@ -4,7 +4,7 @@
         this.questionEl = document.getElementById("question");
         this.choicesEl = document.getElementById("choices");
 
-        this.template = document.getElementById("template");
+        this.template = " <li class='choice' data-idx='{{data-idx}}'>{{text}}</li>";
     }
 
     View.prototype.bind = function (event, handler) {
@@ -15,18 +15,20 @@
         }
     }
 
-
     View.prototype.renderQuize = function (quize) {
         this.questionEl.innerHTML = quize.question;
         this.choicesEl.textContent = "";
+        let html = ""
         quize.choices.forEach(function (choice, idx) {
 
-            const liElement = this.template.content.firstElementChild.cloneNode(true);
-            liElement.setAttribute("data-idx", idx);
-            liElement.insertAdjacentHTML('beforeend', choice);
-            this.choicesEl.appendChild(liElement);
+            let compiled = this.template;
+            compiled = compiled.replace("{{data-idx}}", idx);
+            compiled = compiled.replace('{{text}}', choice);
+            html = html + compiled;
 
         }.bind(this));
+
+        this.choicesEl.insertAdjacentHTML('beforeend', html);
     }
 
     window.app = window.app || {};

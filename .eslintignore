@@ -1,5 +1,6 @@
-#vscode
+# for vscode
 node_modules/*
 .eslintrc.js
 bundle.js
 webpack.config.js
+main.js

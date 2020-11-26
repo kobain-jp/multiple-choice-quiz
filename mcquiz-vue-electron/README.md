@@ -74,3 +74,11 @@ U "main": "main.js",
 ## start app
 
 `npm start`
+
+## install cli to package
+
+`npx @electron-forge/cli import`
+
+## package
+
+`npm run make`

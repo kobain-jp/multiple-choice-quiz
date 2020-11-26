@@ -2,6 +2,7 @@ https://www.electronjs.org/docs/tutorial/quick-start
 
 ## install from existed package.json
 
+`cd ./mcquize-vue-electron`
 `npm install`
 
 ## install electron

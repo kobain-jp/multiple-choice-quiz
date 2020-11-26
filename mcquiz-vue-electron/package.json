@@ -1,0 +1,20 @@
+{
+  "name": "mcquiz-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11.0.3",
+    "eslint": "^7.14.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "prettier": "2.2.0",
+    "webpack": "5.7.0",
+    "webpack-cli": "^4.2.0"
+  }
+}

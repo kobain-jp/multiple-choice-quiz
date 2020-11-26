@@ -34,3 +34,7 @@ https://medium.com/better-programming/how-to-write-an-async-class-constructor-in
 memo
 https://qiita.com/umamichi/items/6ce4f46c1458e89c4cfc
 https://qiita.com/riversun/items/1da0c0668d0dccdc0460
+
+npx eslint .
+npx webpack
+npx prettier --write .

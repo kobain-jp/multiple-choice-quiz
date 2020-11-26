@@ -7,7 +7,7 @@ html{
     background: linear-gradient(#17a2b8, pink);
 }
 
-.question{
+.loading,.question{
     display: flex;
     justify-content: center;
     align-items: center;

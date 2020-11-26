@@ -10,6 +10,7 @@ new Vue({
     choices: [],
     collectIdx: 0,
     commentary: "",
+    contentLoaded: false,
   },
   methods: {
     answer: function (e) {
@@ -58,5 +59,6 @@ new Vue({
         console.log(err);
         this.question = "クイズの取得に失敗しました。";
       });
+    this.contentLoaded = true;
   },
 });

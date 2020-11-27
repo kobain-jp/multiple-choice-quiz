@@ -1,9 +1,4 @@
 (async function () {
-  let n = 1 + (await add(2, 3)) + 4;
-  console.log(n); // 10
-})();
-
-(async function () {
   class MultipleChoiceQuize {
     constructor() {
       // asyncできないので、new した後にinitを呼ぶ設計

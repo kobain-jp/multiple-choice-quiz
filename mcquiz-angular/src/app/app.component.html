@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="quize-container">
+    <div class="question" id="question">{{quiz.question}}</div>
+    <ul class="choices" id="choices">
+      <li *ngFor="let choice of quiz.choices; let i=index" attr.data-idx="{{i}}" class="choice"
+        (click)="answer($event)">{{choice}}</li>
+    </ul>
+  </div>
+</div>
+<footer class="footer">© 2020 Multiple Quize from dojo</footer>

@@ -1,7 +1,7 @@
 (function (window) {
   function Model() {
     this.quizList = [];
-    this.quize = {};
+    this.quiz = {};
   }
 
   Model.prototype.fetch = async function () {

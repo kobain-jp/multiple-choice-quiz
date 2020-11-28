@@ -4,7 +4,7 @@ let quizList = [];
 // current question
 let question = "";
 let choices = [];
-let collectIdx = 0;
+let correctIdx = 0;
 let commentary = "";
 
 // html element
@@ -13,7 +13,7 @@ const choicesEl = document.getElementById("choices");
 
 // controller
 function answer(e) {
-  if (parseInt(e.target.dataset.idx) === collectIdx) {
+  if (parseInt(e.target.dataset.idx) === correctIdx) {
     alert("正解!!");
     alert(commentary);
     nextQuestion();
@@ -33,7 +33,7 @@ function nextQuestion() {
   const quiz = quizList.pop();
   question = quiz.question;
   choices = quiz.choices;
-  collectIdx = quiz.collectIdx;
+  correctIdx = quiz.correctIdx;
   commentary = quiz.commentary;
 
   renderQuize();

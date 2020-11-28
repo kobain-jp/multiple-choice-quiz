@@ -11,7 +11,7 @@
       // current question
       this.question = "";
       this.choices = [];
-      this.collectIdx = 0;
+      this.correctIdx = 0;
       this.commentary = "";
 
       // html element
@@ -29,7 +29,7 @@
 
     // controller
     answer(e) {
-      if (parseInt(e.target.dataset.idx) === this.collectIdx) {
+      if (parseInt(e.target.dataset.idx) === this.correctIdx) {
         alert("正解!!");
         alert(this.commentary);
         this.nextQuestion();
@@ -49,7 +49,7 @@
       this.quiz = this.quizList.pop();
       this.question = this.quiz.question;
       this.choices = this.quiz.choices;
-      this.collectIdx = this.quiz.collectIdx;
+      this.correctIdx = this.quiz.correctIdx;
       this.commentary = this.quiz.commentary;
 
       this.renderQuize();

@@ -5,7 +5,7 @@ let choices = [
   "javaのコードをそのままかいても動くため",
   "javaがその時流行っていたから",
 ];
-let collectIdx = 2;
+let correctIdx = 2;
 let commentary =
   "Java is to JavaScript as Car is to Carpet\nと言われていれるぐらいjavaとjavascriptは違います。";
 
@@ -18,7 +18,7 @@ function answer(e) {
   console.log(e.target);
   console.log(e.target.value);
 
-  if (choices[collectIdx] === e.target.value) {
+  if (choices[correctIdx] === e.target.value) {
     alert("正解");
     alert(commentary);
     nextQuestion();
@@ -35,7 +35,7 @@ function nextQuestion() {
     "背景に線形グラデーションを表示する",
     "背景に反復線形グラデーションを表示する",
   ];
-  collectIdx = 0;
+  correctIdx = 0;
   commentary =
     "background: linear-gradient(45deg, #005BAC, #5EC2C6); \n 適用してみると、どっかでみたことあるかも";
 

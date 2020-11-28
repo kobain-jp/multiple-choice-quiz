@@ -18,7 +18,7 @@
   };
 
   Controller.prototype.answer = function (e) {
-    if (parseInt(e.target.dataset.idx) === this.model.quiz.collectIdx) {
+    if (parseInt(e.target.dataset.idx) === this.model.quiz.correctIdx) {
       alert("正解!!");
       alert(this.model.quiz.commentary);
       this.nextQuestion();

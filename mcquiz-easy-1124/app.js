@@ -4,7 +4,7 @@ var choices = [
   "javaと全く同じ構文で動くから",
   "当時Javaが流行っていたから",
 ];
-var collectIdx = 2;
+var correctIdx = 2;
 var commentary =
   "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。";
 
@@ -23,7 +23,7 @@ choices.forEach(function (choice) {
 });
 
 function answer(e) {
-  if (choices[collectIdx] === e.target.value) {
+  if (choices[correctIdx] === e.target.value) {
     alert("OK");
     alert(commentary);
   } else {

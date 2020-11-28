@@ -1,6 +1,13 @@
 # for vscode
 node_modules/*
 .eslintrc.js
-bundle.js
-webpack.config.js
-main.js
+mcquiz-easy/*
+mcquiz-easy-1124/*
+mcquiz-legacy-input-button/*
+mcquiz-legacy-ul-button/*
+mcquiz-module/*
+mcquiz-module-jquery/*
+mcquiz-mvc-proto/*
+mcquiz-ts/*
+mcquiz-vue/*
+

@@ -1,5 +1,4 @@
 /* global Vue axios */
-
 new Vue({
   el: "#app",
   data: {

@@ -1,3 +1,92 @@
+### 前回までのあらすじ
+
+選択肢クイズをつくったが、一問表示して、クリックすると正解、不正解がでるところまで
+
+ファイル構成
+
+```
+mcquiz-easy
+- index.html
+- app.js
+- app.css
+```
+
+index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+    <div id="question"></div>
+    <div id="choices"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
+```
+
+app.js
+
+```
+var question = "javascriptがjavaとついている理由は？";
+var choices = [
+  "jvmで動くから",
+  "javaと全く同じ構文で動くから",
+  "当時Javaが流行っていたから",
+];
+var correctIdx = 2;
+var commentary =
+  "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。";
+
+const questionElement = document.getElementById("question");
+questionElement.innerHTML = question;
+
+const choicesElement = document.getElementById("choices");
+
+choices.forEach(function (choice) {
+  var inputElement = document.createElement("input");
+  inputElement.setAttribute("type", "button");
+  inputElement.setAttribute("value", choice);
+  inputElement.addEventListener("click", answer);
+
+  choicesElement.appendChild(inputElement);
+});
+
+function answer(e) {
+  if (choices[correctIdx] === e.target.value) {
+    alert("OK");
+    alert(commentary);
+  } else {
+    alert("NG");
+    e.target.remove();
+  }
+}
+
+```
+
+app.css
+
+```
+html{
+    height: 100%;
+}
+
+body{
+    background: linear-gradient(45deg, #005BAC, #5EC2C6); color: white;
+ }
+
+```
+
 ### 描画ロジックをまとめてメソッド抽出しよう
 
 html をデータなどから作成、更新するメソッドは renderXXX と命名します。
@@ -90,7 +179,7 @@ function answer(e) {
 
 ### 複数問題にしよう
 
-今回読み込む data.json ファイルを app.js とどう階層に作成しよう
+今回読み込む data.json ファイルを app.js と同じ階層に作成しよう
 
 data.json
 
@@ -236,7 +325,7 @@ function loadQuizList(onSuccessCallback) {
       type: "GET",
       dataType: "json",
     })
-    .done((data) => {
+    .done(function(data){
       quizList = data;
       onSuccessCallback();
     });
@@ -257,7 +346,7 @@ function loadQuizList(onSuccessCallback) {
       type: "GET",
       dataType: "json",
     })
-    .done((data) => {
+    .done(function(data){
       quizList = data;
       onSuccessCallback();
       console.log("A");
@@ -269,3 +358,36 @@ loadQuizList(nextQuestion);
 console.log("C");
 
 ```
+
+さぁ、どう表示されるでしょうか？いつもの感覚だと ABC かな？
+
+正解はコンソールで確かめましょう。ajax は非同期ロジックなので、処理は先にいってしまいます。
+なので、BCA!!
+
+callback を引数にわたさずに＄ Defferd を使った書き方
+
+```
+function loadQuizList() {
+  var deferred = new $.Deferred();
+  jQuery
+    .ajax({
+      url: "./data.json",
+      type: "GET",
+      dataType: "json",
+    })
+    .done((data) => {
+      quizList = data;
+      deferred.resolve();
+      console.log("A");
+    });
+  console.log("B");
+  return deferred.promise();
+}
+
+loadQuizList().done(nextQuestion);
+
+```
+
+プロダクトコードのときは fail も実装してくださいね。
+
+完成！！

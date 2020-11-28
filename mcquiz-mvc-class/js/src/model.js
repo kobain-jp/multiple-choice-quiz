@@ -1,7 +1,7 @@
 export class Model {
   constructor() {
     this.quizList = [];
-    this.quize = {};
+    this.quiz = {};
   }
 
   async fetch() {

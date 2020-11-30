@@ -34,6 +34,12 @@ function render() {
 }
 
 function nextQuestion() {
+  　
+  if(quizList.length === 0){
+      alert("おしまい");
+      window.location.reload();
+  }
+  
   var quiz = quizList.shift();
   // setdata
   question = quiz.question;

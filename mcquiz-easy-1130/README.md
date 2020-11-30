@@ -234,7 +234,7 @@ var quizList = [
       "javaと全く同じ構文で動くから",
       "当時Javaが流行っていたから",
     ],
-    orrectIdx: 2,
+    correctIdx: 2,
     commentary:
       "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。",
   },
@@ -245,7 +245,7 @@ var quizList = [
       "javaと全く同じ構文で動くから2",
       "当時Javaが流行っていたから2",
     ],
-    orrectIdx: 2,
+    correctIdx: 2,
     commentary:
       "Java is to JavaScript as Car is to Carpetと言われていれるぐらいjavaとjavascriptは違います。2",
   },

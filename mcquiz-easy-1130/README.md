@@ -390,4 +390,29 @@ loadQuizList().done(nextQuestion);
 
 プロダクトコードのときは fail も実装してくださいね。
 
+### 問題がなければおしまいと出して、リロードする。
+
+app.js
+```
+// controller 
+function nextQuestion(){
+
+    if(quizList.length === 0){
+        alert("おしまい");
+        window.location.reload();
+    }
+
+    // 新しい問題のデータをセットする
+    var quiz = quizList.shift();
+    // setCurrentData
+    question = quiz.question;
+    choices = quiz.choices;
+    correctIdx = quiz.correctIdx;
+    commentary = quiz.commentary;
+
+    //　描画ロジックを呼ぶ
+    render();
+}
+```
+
 完成！！

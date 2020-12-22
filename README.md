@@ -31,10 +31,12 @@ prototype の書き方で mvc パターン
 class(constructor で async 使えないため、new して init 呼ぶ構造)
 https://medium.com/better-programming/how-to-write-an-async-class-constructor-in-typescript-javascript-7d7e8325c35e
 
-memo
-https://qiita.com/umamichi/items/6ce4f46c1458e89c4cfc
-https://qiita.com/riversun/items/1da0c0668d0dccdc0460
+### mcquize-jquery
 
-npx eslint .
-npx webpack
-npx prettier --write .
+### mcquize-vue
+
+### mcquize-ts
+
+### mcquize-angular
+
+### mcquize-vue-electron
